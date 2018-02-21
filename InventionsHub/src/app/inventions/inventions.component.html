@@ -1,0 +1,22 @@
+<h3>Add Inventions</h3>
+
+  Name : <input type="text" [(ngModel)]="nameModel">
+  Inventor : <input type="text" [(ngModel)]="inventorModel">
+  Year : <input type="text" [(ngModel)]="yearModel">
+  <button (click)="createInvention()">Create Invention</button>
+
+
+<h2>Greatest Inventions: </h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Inventor</th>
+    <th>Year</th>
+  </tr>
+  <tr *ngFor="let i of inventions">
+    <td>{{i.name}}</td>
+    <td>{{i.inventor}}</td>
+    <td>{{i.year}}</td>
+  </tr>
+</table>
