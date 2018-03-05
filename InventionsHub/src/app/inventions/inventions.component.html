@@ -1,22 +1,37 @@
-<h3>Add Inventions</h3>
+<h4>Add Inventions</h4>
+<div class="container">
+<div class="invention-creator">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+        <input [(ngModel)]="nameModel" placeholder="enter name" class="form-control">
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <input type="text" [(ngModel)]="inventorModel" placeholder="enter inventor " class="form-control">
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <input [(ngModel)]="yearModel" placeholder="year" class="form-control">
+    </div>
+    <div class="col-md-12 text-center">
+        <button class="btn btn-primary" (click)="createInvention()"> create invention </button>
+    </div>
+  </div>
+</div>
 
-  Name : <input type="text" [(ngModel)]="nameModel">
-  Inventor : <input type="text" [(ngModel)]="inventorModel">
-  Year : <input type="text" [(ngModel)]="yearModel">
-  <button (click)="createInvention()">Create Invention</button>
+<div>
+  <h3>Greatest Inventions: </h3>
 
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <th>Inventor</th>
+      <th>Year</th>
+    </tr>
+    <tr *ngFor="let i of inventions">
+      <td>{{i.name}}</td>
+      <td>{{i.inventor}}</td>
+      <td>{{i.year}}</td>
+    </tr>
+  </table>
+</div>
 
-<h2>Greatest Inventions: </h2>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Inventor</th>
-    <th>Year</th>
-  </tr>
-  <tr *ngFor="let i of inventions">
-    <td>{{i.name}}</td>
-    <td>{{i.inventor}}</td>
-    <td>{{i.year}}</td>
-  </tr>
-</table>
+</div>
