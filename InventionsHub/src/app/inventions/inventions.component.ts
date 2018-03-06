@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
-export class Invention {
-  name: String;
-  inventor: String;
-  year: String;
-}
+import { Invention } from './inventions.class';
+import { InventionsService } from './inventions.service';
 
 @Component({
   selector: 'app-inventions',
   templateUrl: './inventions.component.html',
-  styleUrls: ['./inventions.component.css']
+  styleUrls: ['./inventions.component.css'],
+  providers: [InventionsService]
 })
 export class InventionsComponent implements OnInit {
 
@@ -18,18 +15,12 @@ export class InventionsComponent implements OnInit {
   yearModel : String;
   inventions : Invention[];
 
-  constructor() {
-    this.nameModel = 'sad';
-    this.inventorModel = 'sad';
-    this.yearModel = 'sad';
+  constructor( private inventionsService : InventionsService ) {
+    this.nameModel = '';
+    this.inventorModel = '';
+    this.yearModel = '';
 
-    let defaultInvention : Invention = {
-      name : 'Html lang',
-      inventor : 'abcd',
-      year : '1782'
-    }
-
-    this.inventions = [defaultInvention];
+    this.inventions = inventionsService.getInventions();
   }
 
   ngOnInit() {
@@ -41,9 +32,7 @@ export class InventionsComponent implements OnInit {
       inventor : this.inventorModel,
       year : this.yearModel
     }
-
     this.inventions.push(newInvention);
-
     this.nameModel=this.inventorModel=this.yearModel='';
   }
 
