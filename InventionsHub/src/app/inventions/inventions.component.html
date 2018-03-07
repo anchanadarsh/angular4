@@ -1,37 +1,49 @@
-<h4>Add Inventions</h4>
+
 <div class="container">
-<div class="invention-creator">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-        <input [(ngModel)]="nameModel" placeholder="enter name" class="form-control">
-    </div>
-    <div class="col-xs-12 col-sm-4">
-        <input type="text" [(ngModel)]="inventorModel" placeholder="enter inventor " class="form-control">
-    </div>
-    <div class="col-xs-12 col-sm-4">
-        <input [(ngModel)]="yearModel" placeholder="year" class="form-control">
-    </div>
-    <div class="col-md-12 text-center">
-        <button class="btn btn-primary" (click)="createInvention()"> create invention </button>
+  <div class="invention-creator">
+    <div class="row">
+      <div class="col-md-12 text-center">
+          <h4>Add Inventions</h4>
+      </div>
+      <br>
+      <div class="col-xs-12 col-sm-4">
+          <input [(ngModel)]="nameModel" placeholder="enter name" class="form-control">
+      </div>
+      <div class="col-xs-12 col-sm-4">
+          <input type="text" [(ngModel)]="inventorModel" placeholder="enter inventor " class="form-control">
+      </div>
+      <div class="col-xs-12 col-sm-4">
+          <input [(ngModel)]="yearModel" placeholder="year" class="form-control">
+      </div>
+      <br>
+      <div class="col-md-12 text-center">
+          <textarea type="textarea" rows="4" cols="20" [(ngModel)]="detailsModel" placeholder="details" class="form-control">
+          </textarea>
+      </div>
+      <br>
+      <div class="col-md-12 text-center">
+          <button class="btn btn-primary" (click)="createInvention()"> create invention </button>
+      </div>
     </div>
   </div>
-</div>
 
-<div>
-  <h3>Greatest Inventions: </h3>
+  <div>
+    <h3>Greatest Inventions: </h3>
 
-  <table class="table table-bordered">
-    <tr>
-      <th>Name</th>
-      <th>Inventor</th>
-      <th>Year</th>
-    </tr>
-    <tr *ngFor="let i of inventions">
-      <td>{{i.name}}</td>
-      <td>{{i.inventor}}</td>
-      <td>{{i.year}}</td>
-    </tr>
-  </table>
-</div>
+    <table class="table table-bordered">
+      <tr>
+        <th>Name</th>
+        <th>Inventor</th>
+        <th>Year</th>
+        <th>Details</th>
+      </tr>
+      <tr *ngFor="let i of inventions">
+        <td>{{i.name}}</td>
+        <td>{{i.inventor}}</td>
+        <td>{{i.year}}</td>
+        <td><button class="btn btn-primary" (click)="details(i.id)"> Details </button></td>
+      </tr>
+    </table>
+  </div>
 
 </div>
