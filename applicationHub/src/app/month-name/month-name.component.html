@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 monthList monthHead">
+      <p>Month</p>
+    </div>
+    <div *ngFor="let i of months" class="col-sm-12 monthList">
+      <a routerLink="/{{i}}"><p>{{i}}</p></a>
+    </div>
+  </div>
+</div>
